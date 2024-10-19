@@ -28,7 +28,7 @@ model_name_translate = "Helsinki-NLP/opus-mt-en-ar"
 tokenizer_translation = MarianTokenizer.from_pretrained(model_name_translate)
 model_translate = MarianMTModel.from_pretrained(model_name_translate)
 
-
+@spaces.GPU
 def translate(sentence):
     batch = tokenizer_translation([sentence], return_tensors="pt")
     generated_ids = model_translate.generate(batch["input_ids"])
@@ -108,14 +108,12 @@ mf_transcribe = gr.Interface(
     fn=transcribe,
     inputs=[
         gr.Audio(sources="microphone", type="filepath"),
-        gr.Radio(["transcribe", "translate"], label="Task", value="transcribe"),
     ],
     outputs="text",
-    title="Whisper Large V3 Turbo: Transcribe Audio",
+    title="Real-Time Speech Translation From English to Arabic",
     description=(
-        "Transcribe long-form microphone or audio inputs with the click of a button! Demo uses the"
-        f" checkpoint [{MODEL_NAME}](https://huggingface.co/{MODEL_NAME}) and 🤗 Transformers to transcribe audio files"
-        " of arbitrary length."
+        "Real Time Speech Translation Model from English to Arabic. This model uses the Whisper For speech to generation"
+        "then Helensiki model fine tuned on a translation dataset for translation"
     ),
     allow_flagging="never",
 )
@@ -124,36 +122,19 @@ file_transcribe = gr.Interface(
     fn=transcribe,
     inputs=[
         gr.Audio(sources="upload", type="filepath", label="Audio file"),
-        gr.Radio(["transcribe", "translate"], label="Task", value="transcribe"),
     ],
     outputs="text",
-    title="Whisper Large V3: Transcribe Audio",
+    title="Real-Time Speech Translation From English to Arabic",
     description=(
-        "Transcribe long-form microphone or audio inputs with the click of a button! Demo uses the"
-        f" checkpoint [{MODEL_NAME}](https://huggingface.co/{MODEL_NAME}) and 🤗 Transformers to transcribe audio files"
-        " of arbitrary length."
+        "Real Time Speech Translation Model from English to Arabic. This model uses the Whisper For speech to generation"
+        "then Helensiki model fine tuned on a translation dataset for translation"
     ),
     allow_flagging="never",
 )
 
-yt_transcribe = gr.Interface(
-    fn=yt_transcribe,
-    inputs=[
-        gr.Textbox(lines=1, placeholder="Paste the URL to a YouTube video here", label="YouTube URL"),
-        gr.Radio(["transcribe", "translate"], label="Task", value="transcribe")
-    ],
-    outputs=["html", "text"],
-    title="Whisper Large V3: Transcribe YouTube",
-    description=(
-        "Transcribe long-form YouTube videos with the click of a button! Demo uses the checkpoint"
-        f" [{MODEL_NAME}](https://huggingface.co/{MODEL_NAME}) and 🤗 Transformers to transcribe video files of"
-        " arbitrary length."
-    ),
-    allow_flagging="never",
-)
 
 with demo:
-    gr.TabbedInterface([mf_transcribe, file_transcribe, yt_transcribe], ["Microphone", "Audio file", "YouTube"])
+    gr.TabbedInterface([mf_transcribe, file_transcribe], ["Microphone", "Audio file"])
 
 demo.queue().launch(ssr_mode=False)
 
