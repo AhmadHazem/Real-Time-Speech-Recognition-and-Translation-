@@ -1,0 +1,5 @@
+transformers
+yt-dlp
+torch
+sentencePiece
+sacremoses
