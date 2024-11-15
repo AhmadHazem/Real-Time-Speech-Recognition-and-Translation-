@@ -6,4 +6,4 @@ The purpose of this project is a real-time speech recognition and English to Ara
 The project is divided into two main parts: the speech recognition and the translation. The speech recognition is done using Meta's Whisper V3 pretrained model. The output transcribed english text is then fed into Helsinki English to Arabic translation model. 
 
 ## Model Diagram
-![Model Diagram](docs/model_overview.png)
+![Model Diagram](Docs/model_overview.png)
