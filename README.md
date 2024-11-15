@@ -37,7 +37,14 @@ For the evaluation we evaluated Whisper on a sample of the Common Voice dataset.
 
 ## Helsinki Model
 
-Section for finetuning with lora
+Helsinki model is a powerful neural machine translation model designed to translate text between various language pairs. It employs transformer architecture to achieve state-of-the-art results in language translation by leveraging massive multilingual datasets. The model's versatility lies in its ability to handle both high-resource and low-resource language pairs, making it a robust choice for diverse translation tasks. In our project, the Helsinki model is fine-tuned using Low-Rank Adaptation (LoRA) to optimize performance for speech-to-text translation. This fine-tuning ensures that the model adapts to the nuances of spoken language, delivering accurate and contextually relevant translations.
+
+
+
+
+
+
+
 
 ## Installtion
 ### Local Installation
