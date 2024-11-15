@@ -3,6 +3,8 @@
     <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">
 </a>
 
+[Watch the video](Docs/demo.mp4)
+
 ## Overview
 The purpose of this project is a real-time speech recognition and English to Arabic translation. In this project we levarage advanced natural language processing and speech technologies to facilitate instantaneous translation. Finally, the project is displayed in a user-friendly interface where the user talks into the microphone and the translated text is displayed on the screen.
 
