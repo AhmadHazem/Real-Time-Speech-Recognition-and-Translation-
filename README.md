@@ -1,4 +1,8 @@
 # Real-Time-Speech-Recognition-and-Translation
+<a href="https://colab.research.google.com/drive/1UwWVyIdiTGw7_YxSOoRCFTXZBQFmNOVz?usp=sharing">
+    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">
+</a>
+
 ## Overview
 The purpose of this project is a real-time speech recognition and English to Arabic translation. In this project we levarage advanced natural language processing and speech technologies to facilitate instantaneous translation. Finally, the project is displayed in a user-friendly interface where the user talks into the microphone and the translated text is displayed on the screen.
 
@@ -10,6 +14,8 @@ The project is divided into two main parts: the speech recognition and the trans
 
 ## Whisper Model
 ![Whisper Model](Docs/whisper.png)
+
+
 Whisper is an automatic speech recognition (ASR) system trained on 680,000 hours of multilingual and multitask supervised data collected from the web.
 For our project we utilized this model to transcribe the speech to text.
 
@@ -34,5 +40,24 @@ For the evaluation we evaluated Whisper on a sample of the Common Voice dataset.
 Section for finetuning with lora
 
 ## Installtion
+### Local Installation
+Clone the repository
+```bash
+git clone https://github.com/AhmadHazem/Real-Time-Speech-Recognition-and-Translation-.git
+```
+Install the required packages
+```bash
+cd gradio
+pip install -r requirements.txt
+```
 
 ## Running the model
+run the app
+```bash
+cd gradio
+python app.py
+```
+## Google Colab
+Alternatively the project can be run with a standalone script in Google Colab, giving you a local gradio interface. The link is provided at the top of the README.
+
+
